@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <style>
+            .front {
+                display: none;
+            }
+
+            .card-image img {
+                height: 250px;
+                width: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <section data-flash-card>
+            <section class="card-image">
+                <img class="back" src="http://thumbs.dreamstime.com/z/question-mark-confusion-d-people-man-person-32590363.jpg" />
+                <img class="front" src="http://upload.wikimedia.org/wikipedia/commons/0/04/So_happy_smiling_cat.jpg" />
+            </section>
+
+            <section>
+                <span data-flash-card-text>Cat</span>
+            </section>
+        </section>
+
+        <section>
+            <button data-next-flash-card >Next</button>
+        </section>
+
+        <script>
+            var showPicture = function() {
+                $('[data-flash-card] .front').show();
+                $('[data-flash-card] .back').hide();
+            };
+
+            var showNextCard = function() {
+                currentCard += 1;
+
+                $('[data-flash-card] .front').hide();
+                $('[data-flash-card] .back').show();
+
+                var newText = flashCards[currentCard].text;
+                $('[data-flash-card-text]').text(newText);
+
+                var newImageSrc = flashCards[currentCard].imageSrc;
+                $('[data-flash-card] .front').attr('src', newImageSrc);
+            };
+
+            $(document).ready(function() {
+                window.currentCard = 0;
+                $('[data-flash-card').on('click', showPicture)
+                $('[data-next-flash-card').on('click', showNextCard)
+            });
+
+            var flashCard = function(text, imageSrc) {
+                return {
+                    text: text,
+                    imageSrc: imageSrc,
+                }
+            };
+
+            var flashCards = [
+                new flashCard("Cat", "http://upload.wikimedia.org/wikipedia/commons/0/04/So_happy_smiling_cat.jpg"),
+                new flashCard("Dog", "http://dogblogforeveryone.weebly.com/uploads/1/3/7/2/13722182/658040288_orig.jpg")
+            ]
+
+
+        </script>
+    </body>
+</html>
