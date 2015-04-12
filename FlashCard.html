@@ -52,13 +52,19 @@
         </section>
 
         <script>
+            var getNextCard = function() {
+                var numberOfCards = flashCards.length;
+                var cardToReturn  = Math.floor(Math.random() * numberOfCards);
+                return cardToReturn;
+            }
+
             var showPicture = function() {
                 $('[data-flash-card] .front').show();
                 $('[data-flash-card] .back').hide();
             };
 
             var showNextCard = function() {
-                currentCard += 1;
+                var currentCard = getNextCard();
 
                 $('[data-flash-card] .front').hide();
                 $('[data-flash-card] .back').show();
@@ -71,7 +77,7 @@
             };
 
             $(document).ready(function() {
-                window.currentCard = 0;
+                showNextCard();
                 $('[data-flash-card').on('click', showPicture)
                 $('[data-next-flash-card').on('click', showNextCard)
             });
