@@ -2,7 +2,12 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <style>
+            .ui-loader {
+                display: none !important;
+            }
+
             .front {
                 display: none;
             }
@@ -79,11 +84,8 @@
 
             $(document).ready(function() {
                 showNextCard();
-                $('[data-flash-card').on('click', showPicture);
-                $('[data-next-flash-card').on('click', showNextCard);
-
-                $('[data-flash-card').on('touchstart', showPicture);
-                $('[data-next-flash-card').on('touchstart', showNextCard);
+                $('[data-flash-card').on('tap', showPicture);
+                $('[data-next-flash-card').on('tap', showNextCard);
             });
 
             var flashCard = function(text, imageSrc) {
