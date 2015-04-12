@@ -6,25 +6,48 @@
                 display: none;
             }
 
-            .card-image img {
-                height: 250px;
-                width: 250px;
+            .flash-card {
+                text-align: center;
             }
+
+            .card-image img {
+                height: 500px;
+                width: 500px;
+            }
+
+            .card-text {
+                margin-top: 10px;
+                margin-bottom: 30px;
+            }
+
+            .card-text span {
+                font-size: 80px;
+                font-style: bold;
+            }
+
+            .next-card {
+                text-align: center;
+            }
+
+            .next-card button {
+                font-size: 40px;
+            }
+
         </style>
     </head>
     <body>
-        <section data-flash-card>
+        <section class="flash-card" data-flash-card>
             <section class="card-image">
                 <img class="back" src="http://thumbs.dreamstime.com/z/question-mark-confusion-d-people-man-person-32590363.jpg" />
                 <img class="front" src="http://upload.wikimedia.org/wikipedia/commons/0/04/So_happy_smiling_cat.jpg" />
             </section>
 
-            <section>
+            <section class="card-text">
                 <span data-flash-card-text>Cat</span>
             </section>
         </section>
 
-        <section>
+        <section class="next-card">
             <button data-next-flash-card >Next</button>
         </section>
 
