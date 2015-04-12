@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
         <style>
             .front {
@@ -11,8 +12,8 @@
             }
 
             .card-image img {
-                height: 500px;
-                width: 500px;
+                height: 400px;
+                width: 400px;
             }
 
             .card-text {
@@ -78,8 +79,11 @@
 
             $(document).ready(function() {
                 showNextCard();
-                $('[data-flash-card').on('click', showPicture)
-                $('[data-next-flash-card').on('click', showNextCard)
+                $('[data-flash-card').on('click', showPicture);
+                $('[data-next-flash-card').on('click', showNextCard);
+
+                $('[data-flash-card').on('touchstart', showPicture);
+                $('[data-next-flash-card').on('touchstart', showNextCard);
             });
 
             var flashCard = function(text, imageSrc) {
